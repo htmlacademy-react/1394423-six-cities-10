@@ -1,12 +1,10 @@
 import WelcomeScreen from '../../pages/welcome-screen/welcome-screen';
-import {WelcomePageProps} from '../../types/props/welcome-page';
+import type { WelcomePageProps } from '../../types/properties/properties';
 
-function App(prop: WelcomePageProps): JSX.Element {
-  return (
-    <main>
-      <WelcomeScreen countAvailablePlace={prop.countAvailablePlace}></WelcomeScreen>
-    </main>
-  );
-}
+const App = (props: WelcomePageProps): JSX.Element => (
+  <main>
+    <WelcomeScreen countAvailablePlace={props.countAvailablePlace} />
+  </main>
+);
 
 export default App;

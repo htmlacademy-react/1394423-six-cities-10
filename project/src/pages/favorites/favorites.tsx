@@ -1,10 +1,10 @@
 import Header from '../../components/header/header';
+import {Link} from 'react-router-dom';
 
 function Favorites(): JSX.Element {
   return (
     <div className='page'>
       <Header />
-
       <main className='page__main page__main--favorites'>
         <div className='page__favorites-container container'>
           <section className='favorites'>
@@ -27,7 +27,7 @@ function Favorites(): JSX.Element {
                       <a href='#'>
                         <img
                           className='place-card__image'
-                          src='img/apartment-small-03.jpg'
+                          src='markup/img/apartment-small-03.jpg'
                           width='150'
                           height='110'
                           alt='Place image'
@@ -58,7 +58,7 @@ function Favorites(): JSX.Element {
                       </div>
                       <div className='place-card__rating rating'>
                         <div className='place-card__stars rating__stars'>
-                          <span style={{ width: '80%' }}></span>
+                          <span style={{ width: '80%' }}/>
                           <span className='visually-hidden'>Rating</span>
                         </div>
                       </div>
@@ -74,7 +74,7 @@ function Favorites(): JSX.Element {
                       <a href='#'>
                         <img
                           className='place-card__image'
-                          src='img/room-small.jpg'
+                          src='markup/img/room-small.jpg'
                           width='150'
                           height='110'
                           alt='Place image'
@@ -132,7 +132,7 @@ function Favorites(): JSX.Element {
                       <a href='#'>
                         <img
                           className='place-card__image'
-                          src='img/apartment-small-04.jpg'
+                          src='markup/img/apartment-small-04.jpg'
                           width='150'
                           height='110'
                           alt='Place image'
@@ -163,7 +163,7 @@ function Favorites(): JSX.Element {
                       </div>
                       <div className='place-card__rating rating'>
                         <div className='place-card__stars rating__stars'>
-                          <span style={{ width: '80%' }}></span>
+                          <span style={{ width: '80%' }}/>
                           <span className='visually-hidden'>Rating</span>
                         </div>
                       </div>
@@ -180,15 +180,15 @@ function Favorites(): JSX.Element {
         </div>
       </main>
       <footer className='footer container'>
-        <a className='footer__logo-link' href='main.html'>
+        <Link className='header__logo-link' to="/">
           <img
             className='footer__logo'
-            src='img/logo.svg'
+            src='markup/img/logo.svg'
             alt='6 cities logo'
             width='64'
             height='33'
           />
-        </a>
+        </Link>
       </footer>
     </div>
   );

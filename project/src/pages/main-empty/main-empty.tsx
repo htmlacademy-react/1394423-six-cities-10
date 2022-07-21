@@ -57,7 +57,7 @@ function MainEmpty(): JSX.Element {
                 </p>
               </div>
             </section>
-            <div className='cities__right-section'></div>
+            <div className='cities__right-section'/>
           </div>
         </div>
       </main>

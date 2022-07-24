@@ -1,20 +1,13 @@
 import React from 'react';
+import {Card} from '../../types/properties/properties';
 
-const CityCards = (card: {
-  imageSrc: string;
-  price: {
-    value: number;
-    contractTerm: string;
-  };
-  name: string;
-  type: string;
-}): JSX.Element => (
+const CardValue = (props: Card): JSX.Element => (
   <article className='cities__card place-card'>
     <div className='cities__image-wrapper place-card__image-wrapper'>
       <a href='#'>
         <img
           className='place-card__image'
-          src={card.imageSrc}
+          src={props.imageSrc}
           width='260'
           height='200'
           alt='Place image'
@@ -24,9 +17,9 @@ const CityCards = (card: {
     <div className='place-card__info'>
       <div className='place-card__price-wrapper'>
         <div className='place-card__price'>
-          <b className='place-card__price-value'>&euro;{card.price.value}</b>
+          <b className='place-card__price-value'>&euro;{props.price.value}</b>
           <span className='place-card__price-text'>
-            &#47;&nbsp;{card.price.contractTerm}
+            &#47;&nbsp;{props.price.contractTerm}
           </span>
         </div>
         <button className='place-card__bookmark-button button' type='button'>
@@ -43,13 +36,11 @@ const CityCards = (card: {
         </div>
       </div>
       <h2 className='place-card__name'>
-        <a href='#'>{card.name}</a>
+        <a href='#'>{props.name}</a>
       </h2>
-      <p className='place-card__type'>{card.type}</p>
+      <p className='place-card__type'>{props.type}</p>
     </div>
   </article>
 );
 
-const CityCardMemo = React.memo(CityCards);
-
-export default CityCardMemo;
+export default React.memo(CardValue);

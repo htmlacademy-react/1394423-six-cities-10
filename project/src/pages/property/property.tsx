@@ -1,14 +1,16 @@
 import Header from '../../components/header/header';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import NotFoundPage from '../not-found-page/not-found-page';
 
 function Property(): JSX.Element {
   const params = useParams();
   const id = params.id;
-
-  return id ? (
+  if (id) {
+    return <NotFoundPage />;
+  }
+  return (
     <div className='page'>
-      <Header/>
+      <Header />
       <main className='page__main page__main--property'>
         <section className='property'>
           <div className='property__gallery-container container'>
@@ -168,7 +170,7 @@ function Property(): JSX.Element {
                     <div className='reviews__info'>
                       <div className='reviews__rating rating'>
                         <div className='reviews__stars rating__stars'>
-                          <span style={{ width: '80%' }}/>
+                          <span style={{ width: '80%' }} />
                           <span className='visually-hidden'>Rating</span>
                         </div>
                       </div>
@@ -197,19 +199,14 @@ function Property(): JSX.Element {
                       value='5'
                       id='5-stars'
                       type='radio'
-                    >
-                    </input>
+                    />
                     <label
                       htmlFor='5-stars'
                       className='reviews__rating-label form__rating-label'
                       title='perfect'
                     >
-                      <svg
-                        className='form__star-image'
-                        width='37'
-                        height='33'
-                      >
-                        <use xlinkHref='#icon-star'/>
+                      <svg className='form__star-image' width='37' height='33'>
+                        <use xlinkHref='#icon-star' />
                       </svg>
                     </label>
                     <input
@@ -218,19 +215,14 @@ function Property(): JSX.Element {
                       value='4'
                       id='4-stars'
                       type='radio'
-                    >
-                    </input>
+                    />
                     <label
                       htmlFor='4-stars'
                       className='reviews__rating-label form__rating-label'
                       title='good'
                     >
-                      <svg
-                        className='form__star-image'
-                        width='37'
-                        height='33'
-                      >
-                        <use xlinkHref='#icon-star'/>
+                      <svg className='form__star-image' width='37' height='33'>
+                        <use xlinkHref='#icon-star' />
                       </svg>
                     </label>
 
@@ -240,19 +232,14 @@ function Property(): JSX.Element {
                       value='3'
                       id='3-stars'
                       type='radio'
-                    >
-                    </input>
+                    />
                     <label
                       htmlFor='3-stars'
                       className='reviews__rating-label form__rating-label'
                       title='not bad'
                     >
-                      <svg
-                        className='form__star-image'
-                        width='37'
-                        height='33'
-                      >
-                        <use xlinkHref='#icon-star'/>
+                      <svg className='form__star-image' width='37' height='33'>
+                        <use xlinkHref='#icon-star' />
                       </svg>
                     </label>
 
@@ -262,19 +249,14 @@ function Property(): JSX.Element {
                       value='2'
                       id='2-stars'
                       type='radio'
-                    >
-                    </input>
+                    />
                     <label
                       htmlFor='2-stars'
                       className='reviews__rating-label form__rating-label'
                       title='badly'
                     >
-                      <svg
-                        className='form__star-image'
-                        width='37'
-                        height='33'
-                      >
-                        <use xlinkHref='#icon-star'/>
+                      <svg className='form__star-image' width='37' height='33'>
+                        <use xlinkHref='#icon-star' />
                       </svg>
                     </label>
 
@@ -284,19 +266,14 @@ function Property(): JSX.Element {
                       value='1'
                       id='1-star'
                       type='radio'
-                    >
-                    </input>
+                    />
                     <label
                       htmlFor='1-star'
                       className='reviews__rating-label form__rating-label'
                       title='terribly'
                     >
-                      <svg
-                        className='form__star-image'
-                        width='37'
-                        height='33'
-                      >
-                        <use xlinkHref='#icon-star'/>
+                      <svg className='form__star-image' width='37' height='33'>
+                        <use xlinkHref='#icon-star' />
                       </svg>
                     </label>
                   </div>
@@ -325,7 +302,7 @@ function Property(): JSX.Element {
               </section>
             </div>
           </div>
-          <section className='property__map map'/>
+          <section className='property__map map' />
         </section>
         <div className='container'>
           <section className='near-places places'>
@@ -362,14 +339,14 @@ function Property(): JSX.Element {
                         width='18'
                         height='19'
                       >
-                        <use xlinkHref='#icon-bookmark'/>
+                        <use xlinkHref='#icon-bookmark' />
                       </svg>
                       <span className='visually-hidden'>In bookmarks</span>
                     </button>
                   </div>
                   <div className='place-card__rating rating'>
                     <div className='place-card__stars rating__stars'>
-                      <span style={{ width: '80%' }}/>
+                      <span style={{ width: '80%' }} />
                       <span className='visually-hidden'>Rating</span>
                     </div>
                   </div>
@@ -409,14 +386,14 @@ function Property(): JSX.Element {
                         width='18'
                         height='19'
                       >
-                        <use xlinkHref='#icon-bookmark'/>
+                        <use xlinkHref='#icon-bookmark' />
                       </svg>
                       <span className='visually-hidden'>To bookmarks</span>
                     </button>
                   </div>
                   <div className='place-card__rating rating'>
                     <div className='place-card__stars rating__stars'>
-                      <span style={{ width: '80%' }}/>
+                      <span style={{ width: '80%' }} />
                       <span className='visually-hidden'>Rating</span>
                     </div>
                   </div>
@@ -459,14 +436,14 @@ function Property(): JSX.Element {
                         width='18'
                         height='19'
                       >
-                        <use xlinkHref='#icon-bookmark'/>
+                        <use xlinkHref='#icon-bookmark' />
                       </svg>
                       <span className='visually-hidden'>To bookmarks</span>
                     </button>
                   </div>
                   <div className='place-card__rating rating'>
                     <div className='place-card__stars rating__stars'>
-                      <span style={{ width: '100%' }}/>
+                      <span style={{ width: '100%' }} />
                       <span className='visually-hidden'>Rating</span>
                     </div>
                   </div>
@@ -481,8 +458,6 @@ function Property(): JSX.Element {
         </div>
       </main>
     </div>
-  ) : (
-    <NotFoundPage />
   );
 }
 

@@ -1,5 +1,6 @@
 import Header from '../../components/header/header';
 import {Link} from 'react-router-dom';
+import {AppRoute} from '../../types/routes/routes';
 
 function Favorites(): JSX.Element {
   return (
@@ -58,7 +59,7 @@ function Favorites(): JSX.Element {
                       </div>
                       <div className='place-card__rating rating'>
                         <div className='place-card__stars rating__stars'>
-                          <span style={{ width: '80%' }}/>
+                          <span style={{ width: '80%' }} />
                           <span className='visually-hidden'>Rating</span>
                         </div>
                       </div>
@@ -98,14 +99,14 @@ function Favorites(): JSX.Element {
                             width='18'
                             height='19'
                           >
-                            <use xlinkHref='#icon-bookmark'/>
+                            <use xlinkHref='#icon-bookmark' />
                           </svg>
                           <span className='visually-hidden'>In bookmarks</span>
                         </button>
                       </div>
                       <div className='place-card__rating rating'>
                         <div className='place-card__stars rating__stars'>
-                          <span style={{ width: '80%' }}/>
+                          <span style={{ width: '80%' }} />
                           <span className='visually-hidden'>Rating</span>
                         </div>
                       </div>
@@ -163,7 +164,7 @@ function Favorites(): JSX.Element {
                       </div>
                       <div className='place-card__rating rating'>
                         <div className='place-card__stars rating__stars'>
-                          <span style={{ width: '80%' }}/>
+                          <span style={{ width: '80%' }} />
                           <span className='visually-hidden'>Rating</span>
                         </div>
                       </div>
@@ -180,7 +181,7 @@ function Favorites(): JSX.Element {
         </div>
       </main>
       <footer className='footer container'>
-        <Link className='header__logo-link' to="/">
+        <Link className='header__logo-link' to={AppRoute.Root}>
           <img
             className='footer__logo'
             src='markup/img/logo.svg'

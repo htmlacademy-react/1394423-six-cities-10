@@ -1,5 +1,5 @@
 import type { WelcomePageProps } from '../../types/properties/properties';
-import { CityCards } from '../../components/city-cards/city-cards';
+import { Cards } from '../../components/cards/cards';
 import Header from '../../components/header/header';
 
 function WelcomeScreen(props: WelcomePageProps): JSX.Element {
@@ -77,7 +77,7 @@ function WelcomeScreen(props: WelcomePageProps): JSX.Element {
                   </li>
                 </ul>
               </form>
-              <CityCards></CityCards>
+              <Cards></Cards>
             </section>
             <div className='cities__right-section'>
               <section className='cities__map map'></section>

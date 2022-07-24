@@ -1,5 +1,6 @@
 import Header from '../../components/header/header';
 import {Link} from 'react-router-dom';
+import {AppRoute} from '../../types/routes/routes';
 
 function FavoritesEmpty(): JSX.Element {
   return (
@@ -20,7 +21,7 @@ function FavoritesEmpty(): JSX.Element {
         </div>
       </main>
       <footer className='footer'>
-        <Link className='footer__logo-link' to="/">
+        <Link className='footer__logo-link' to={AppRoute.Root}>
           <img
             className='footer__logo'
             src='markup/img/logo.svg'

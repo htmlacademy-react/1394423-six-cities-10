@@ -1,13 +1,32 @@
-export type WelcomePageProps = {
+export type PropsWelcomePage = {
   countAvailablePlace: number;
+  cards: PropsValueCard[];
 };
 
-export type Card = {
+export type PropsValueCard = {
+  id: number;
   imageSrc: string;
   price: {
     value: number;
     contractTerm: string;
   };
-  name: string;
+  description: string;
   type: string;
+  mark?: string;
+  onCardMouseOver?: (id: number) => void;
 };
+
+export enum Toggle {
+  placeCard,
+  citiesCard,
+  factoriesCard
+}
+
+export type PropsCards = {
+  cards: PropsValueCard[];
+}
+
+export type PropsToggle = {
+  switched: Toggle;
+  cards: PropsValueCard[];
+}

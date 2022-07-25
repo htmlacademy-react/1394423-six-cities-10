@@ -12,7 +12,7 @@ const Property = ((props: PropsProperty): JSX.Element => {
     ID = parseInt(params.id, 10);
   }
 
-  if (!ID || ID > props.cardsDetail.length || ID.toString() !== params.id || !props.cardsDetail[ID]) {
+  if (!ID && ID !== 0 || ID > props.cardsDetail.length || ID.toString() !== params.id || !props.cardsDetail[ID]) {
     return <NotFoundPage />;
   }
   const cardDetail = props.cardsDetail[ID];
@@ -21,7 +21,7 @@ const Property = ((props: PropsProperty): JSX.Element => {
     <div className='page'>
       <Header />
       <main className='page__main page__main--property'>
-        <CardDetail {...cardDetail}/>
+        <CardDetail {...cardDetail} userLogin/>
         <div className='container'>
           <section className='near-places places'>
             <h2 className='near-places__title'>

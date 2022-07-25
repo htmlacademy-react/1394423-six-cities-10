@@ -60,6 +60,7 @@ export type PropsDetailCard = {
   }
   reviews: review[],
   mark?: string;
+  userLogin?: boolean;
 };
 
 export type review = {

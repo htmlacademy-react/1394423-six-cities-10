@@ -4,10 +4,14 @@ import {FormProperty} from '../../form/form-property';
 
 const CardDetail = ((props: PropsDetailCard): JSX.Element => {
   const card = props;
-  const mark = props.mark ? (
+  const markBlock = props.mark ? (
     <div className='property__mark'>
       <span>{props.mark}</span>
     </div>
+  ) : null;
+
+  const reviewBlock = props?.userLogin ? (
+    <FormProperty/>
   ) : null;
 
   return (
@@ -27,7 +31,7 @@ const CardDetail = ((props: PropsDetailCard): JSX.Element => {
       </div>
       <div className='property__container container'>
         <div className='property__wrapper'>
-          {mark}
+          {markBlock}
           <div className='property__name-wrapper'>
             <h1 className='property__name'>
               {card.name}
@@ -137,10 +141,10 @@ const CardDetail = ((props: PropsDetailCard): JSX.Element => {
                   </div>
                 </li>
               </ul>
-              <FormProperty></FormProperty>
+              {}
             </section>
           ))}
-
+          {reviewBlock}
         </div>
       </div>
       <section className='property__map map'/>

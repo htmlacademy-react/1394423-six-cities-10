@@ -2,11 +2,11 @@ import Header from '../../components/header/header';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../types/routes/routes';
 import {Cards} from '../../components/cards/cards';
-import {PropsCards, Toggle} from '../../types/properties/properties';
+import {PropsFavorites, Toggle} from '../../types/properties/properties';
 
-const Favorites = ((props: PropsCards): JSX.Element => (
-   <div className='page'>
-    <Header />
+const Favorites = ((props: PropsFavorites): JSX.Element => (
+  <div className='page'>
+    <Header/>
     <main className='page__main page__main--favorites'>
       <div className='page__favorites-container container'>
         <section className='favorites'>
@@ -23,32 +23,32 @@ const Favorites = ((props: PropsCards): JSX.Element => (
               <Cards switched={Toggle.factoriesCard} cards={props.cards}/>
             </li>
 
-          <li className='favorites__locations-items'>
-            <div className='favorites__locations locations locations--current'>
-              <div className='locations__item'>
-                <a className='locations__item-link' href='#'>
-                  <span>Cologne</span>
-                </a>
+            <li className='favorites__locations-items'>
+              <div className='favorites__locations locations locations--current'>
+                <div className='locations__item'>
+                  <a className='locations__item-link' href='#'>
+                    <span>Cologne</span>
+                  </a>
+                </div>
               </div>
-            </div>
-            <Cards switched={Toggle.factoriesCard} cards={props.cards}/>
-          </li>
-        </ul>
-      </section>
-    </div>
-  </main>
-  <footer className='footer container'>
-    <Link className='header__logo-link' to={AppRoute.Root}>
-      <img
-        className='footer__logo'
-        src='markup/img/logo.svg'
-        alt='6 cities logo'
-        width='64'
-        height='33'
-      />
-    </Link>
-  </footer>
-</div>
+              <Cards switched={Toggle.factoriesCard} cards={props.cards}/>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <footer className='footer container'>
+      <Link className='header__logo-link' to={AppRoute.Root}>
+        <img
+          className='footer__logo'
+          src='markup/img/logo.svg'
+          alt='6 cities logo'
+          width='64'
+          height='33'
+        />
+      </Link>
+    </footer>
+  </div>
 ));
 
 export default Favorites;

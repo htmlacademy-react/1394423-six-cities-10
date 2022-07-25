@@ -1,6 +1,6 @@
 import React from 'react';
-import {PropsValueCard} from '../../types/properties/properties';
-import {AppRoute} from '../../types/routes/routes';
+import {PropsValueCard} from '../../../types/properties/properties';
+import {AppRoute} from '../../../types/routes/routes';
 import {Link} from 'react-router-dom';
 
 const CitiesCard = ((props: PropsValueCard): JSX.Element => {
@@ -23,9 +23,7 @@ const CitiesCard = ((props: PropsValueCard): JSX.Element => {
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{props.price.value}</b>
-            <span className="place-card__price-text">
-            &#47;&nbsp;{props.price.contractTerm}
-          </span>
+            <span className="place-card__price-text">&#47;&nbsp;{props.price.contractTerm}</span>
           </div>
           <button className="place-card__bookmark-button button" type="button">
             <svg className="place-card__bookmark-icon" width="18" height="19">

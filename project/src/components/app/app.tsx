@@ -1,25 +1,30 @@
 import WelcomeScreen from '../../pages/welcome-screen/welcome-screen';
-import type { PropsWelcomePage } from '../../types/properties/properties';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import Login from '../../pages/login/login';
 import Favorites from '../../pages/favorites/favorites';
 import Property from '../../pages/property/property';
-import { AppRoute, AuthorizationStatus } from '../../types/routes/routes';
+import {AppRoute, AuthorizationStatus} from '../../types/routes/routes';
 import PrivateRoute from '../private-route/private-route';
+import ScrollToTop from '../scroll-to-top/scroll-to-top';
+import {PropsMain} from '../../types/properties/properties';
 
-const App = (props: PropsWelcomePage): JSX.Element => (
+const App = (props: PropsMain): JSX.Element => (
   <BrowserRouter>
+    <ScrollToTop/>
     <Routes>
       <Route
         path={AppRoute.Root}
         element={
           <main>
-            <WelcomeScreen countAvailablePlace={props.countAvailablePlace} cards={props.cards} />
+            <WelcomeScreen
+              countAvailablePlace={props.countAvailablePlace}
+              cards={props.cards}
+            />
           </main>
         }
       />
-      <Route path={AppRoute.Login} element={<Login />} />
+      <Route path={AppRoute.Login} element={<Login/>}/>
       <Route
         path={AppRoute.Favorites}
         element={
@@ -28,8 +33,15 @@ const App = (props: PropsWelcomePage): JSX.Element => (
           </PrivateRoute>
         }
       />
-      <Route path={AppRoute.Offer} element={<Property cards={props.cards}/>} />
-      <Route path='*' element={<NotFoundPage />} />
+      <Route path={AppRoute.Offer}
+        element={
+          <Property
+            cards={props.cards}
+            cardsDetail={props.cardsDetail}
+          />
+        }
+      />
+      <Route path='*' element={<NotFoundPage/>}/>
     </Routes>
   </BrowserRouter>
 );

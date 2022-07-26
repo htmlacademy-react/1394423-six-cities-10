@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {AppRoute} from '../../types/routes/routes';
 
 function NotFoundPage(): JSX.Element {
   const css = `
@@ -17,7 +18,7 @@ function NotFoundPage(): JSX.Element {
       <div className='container'>
         <div className='header__wrapper'>
           <div className='header__left'>
-            <Link className='header__logo-link' to="/">
+            <Link className='header__logo-link' to={AppRoute.Root}>
               <img
                 className='header__logo'
                 src='markup/img/logo.svg'

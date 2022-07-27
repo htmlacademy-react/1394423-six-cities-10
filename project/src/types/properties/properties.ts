@@ -56,17 +56,21 @@ export type PropsDetailCard = {
       text: string;
     }[];
   };
-  reviews: review[];
+  reviews: PropsReview[];
   mark?: string;
   userLogin?: boolean;
 };
 
-export type review = {
+export type PropsReview = {
   id: number;
   imageSrc: string;
   name: string;
   text: string;
   time: string;
+};
+
+export type PropsReviewList = {
+  reviews: PropsReview[];
 };
 
 export type PropsProperty = {

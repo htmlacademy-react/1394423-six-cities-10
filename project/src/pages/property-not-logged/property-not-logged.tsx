@@ -3,7 +3,7 @@ import { PropsProperty } from '../../types/properties/properties';
 import CardDetail from '../../components/cards/card-detail/card-detail';
 import { useParams } from 'react-router-dom';
 import NotFoundPage from '../not-found-page/not-found-page';
-import { PlaceCards } from '../../components/cards/place-cards/place-cards';
+import { PlaceCardList } from '../../components/cards/place-cards/place-card-list';
 
 const PropertyNotLogged = (props: PropsProperty): JSX.Element => {
   const params = useParams();
@@ -32,7 +32,7 @@ const PropertyNotLogged = (props: PropsProperty): JSX.Element => {
             <h2 className='near-places__title'>
               Other places in the neighbourhood
             </h2>
-            <PlaceCards cards={props.cards} />
+            <PlaceCardList cards={props.cards} />
           </section>
         </div>
       </main>

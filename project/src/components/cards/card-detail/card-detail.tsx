@@ -1,6 +1,7 @@
 import React from 'react';
-import {PropsDetailCard} from '../../../types/properties/properties';
-import {FormProperty} from '../../form/form-property';
+import { PropsDetailCard } from '../../../types/properties/properties';
+import { FormProperty } from '../../form/form-property';
+import { ReviewList } from '../../review/review-list';
 
 const CardDetail = (props: PropsDetailCard): JSX.Element => {
   const card = props;
@@ -38,7 +39,7 @@ const CardDetail = (props: PropsDetailCard): JSX.Element => {
           </div>
           <div className='property__rating rating'>
             <div className='property__stars rating__stars'>
-              <span style={{width: '80%'}}></span>
+              <span style={{ width: '80%' }}></span>
               <span className='visually-hidden'>Rating</span>
             </div>
             <span className='property__rating-value rating__value'>
@@ -96,48 +97,17 @@ const CardDetail = (props: PropsDetailCard): JSX.Element => {
               ))}
             </div>
           </div>
-
-          {card.reviews.map((item) => (
-            <section key={item.id} className='property__reviews reviews'>
-              <h2 className='reviews__title'>
-                Reviews &middot;{' '}
-                <span className='reviews__amount'>{item.id}</span>
-              </h2>
-              <ul className='reviews__list'>
-                <li className='reviews__item'>
-                  <div className='reviews__user user'>
-                    <div className='reviews__avatar-wrapper user__avatar-wrapper'>
-                      <img
-                        className='reviews__avatar user__avatar'
-                        src={item.imageSrc}
-                        width='54'
-                        height='54'
-                        alt='Reviews avatar'
-                      />
-                    </div>
-                    <span className='reviews__user-name'>{item.name}</span>
-                  </div>
-                  <div className='reviews__info'>
-                    <div className='reviews__rating rating'>
-                      <div className='reviews__stars rating__stars'>
-                        <span style={{width: '80%'}}/>
-                        <span className='visually-hidden'>Rating</span>
-                      </div>
-                    </div>
-                    <p className='reviews__text'>{item.text}</p>
-                    <time className='reviews__time' dateTime='2019-04-24'>
-                      {item.time}
-                    </time>
-                  </div>
-                </li>
-              </ul>
-              {}
-            </section>
-          ))}
-          {props?.userLogin && <FormProperty/>}
+          <section className='property__reviews reviews'>
+            <h2 className='reviews__title'>
+              Reviews &middot;{' '}
+              <span className='reviews__amount'>{card.reviews.length}</span>
+            </h2>
+            <ReviewList reviews={card.reviews} />
+          </section>
+          {props?.userLogin && <FormProperty />}
         </div>
       </div>
-      <section className='property__map map'/>
+      <section className='property__map map' />
     </section>
   );
 };

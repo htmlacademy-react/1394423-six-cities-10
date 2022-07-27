@@ -2,7 +2,7 @@ import Header from '../../components/header/header';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../types/routes/routes';
 import { PropsCards } from '../../types/properties/properties';
-import { FavoriteCards } from '../../components/cards/favorite-cards/favorite-cards';
+import { FavoriteCardList } from '../../components/cards/favorite-cards/favorite-card-list';
 
 const Favorites = (props: PropsCards): JSX.Element => (
   <div className='page'>
@@ -20,7 +20,7 @@ const Favorites = (props: PropsCards): JSX.Element => (
                   </a>
                 </div>
               </div>
-              <FavoriteCards cards={props.cards} />
+              <FavoriteCardList cards={props.cards} />
             </li>
 
             <li className='favorites__locations-items'>
@@ -31,7 +31,7 @@ const Favorites = (props: PropsCards): JSX.Element => (
                   </a>
                 </div>
               </div>
-              <FavoriteCards cards={props.cards} />
+              <FavoriteCardList cards={props.cards} />
             </li>
           </ul>
         </section>

@@ -2,10 +2,10 @@ import {
   PropsCards,
   PropsValueCard,
 } from '../../../types/properties/properties';
-import CitiesCard from './cities-card';
 import { useState } from 'react';
+import CityCard from './city-card';
 
-export const CityCards = (props: PropsCards): JSX.Element => {
+export const CityCardList = (props: PropsCards): JSX.Element => {
   const [activeCard, setActiveCard] = useState({ cardID: -1 });
   const onMouseOver = (id: number) => {
     setActiveCard({ cardID: id });
@@ -14,7 +14,7 @@ export const CityCards = (props: PropsCards): JSX.Element => {
   return (
     <div className='cities__places-list places__list tabs__content'>
       {props.cards.map((card: PropsValueCard) => (
-        <CitiesCard
+        <CityCard
           key={card.id}
           card={card}
           onCardMouseOver={onMouseOver}

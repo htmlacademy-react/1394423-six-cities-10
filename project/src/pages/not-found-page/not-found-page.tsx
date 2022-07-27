@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {AppRoute} from '../../types/routes/routes';
+import { AppRoute } from '../../types/routes/routes';
 
 function NotFoundPage(): JSX.Element {
   const css = `
@@ -13,7 +13,7 @@ function NotFoundPage(): JSX.Element {
     }
       `;
   return (
-    <div className="page page--gray page--main">
+    <div className='page page--gray page--main'>
       <style>{css}</style>
       <div className='container'>
         <div className='header__wrapper'>
@@ -30,10 +30,10 @@ function NotFoundPage(): JSX.Element {
           </div>
         </div>
       </div>
-      <main className="page__main page__main--index">
-        <div className="page-text">
-          <h1 className="page-text__title">Error 404</h1>
-          <h2 className="page-text__info">Page not found</h2>
+      <main className='page__main page__main--index'>
+        <div className='page-text'>
+          <h1 className='page-text__title'>Error 404</h1>
+          <h2 className='page-text__info'>Page not found</h2>
         </div>
       </main>
     </div>

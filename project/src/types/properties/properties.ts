@@ -9,7 +9,6 @@ export type PropsMain = {
   cardsDetail: PropsDetailCard[];
 };
 
-
 export type PropsValueCard = {
   id: number;
   imageSrc: string;
@@ -20,7 +19,6 @@ export type PropsValueCard = {
   description: string;
   type: string;
   mark?: string;
-  onCardMouseOver?: (id: number) => void;
 };
 
 export type PropsDetailCard = {
@@ -36,7 +34,7 @@ export type PropsDetailCard = {
     entire: string;
     bedrooms: string;
     adults: string;
-  }
+  };
   price: {
     value: number;
     contractTerm: string;
@@ -47,7 +45,7 @@ export type PropsDetailCard = {
       id: number;
       value: string;
     }[];
-  }
+  };
   host: {
     title: string;
     imageSrc: string;
@@ -57,8 +55,8 @@ export type PropsDetailCard = {
       id: number;
       text: string;
     }[];
-  }
-  reviews: review[],
+  };
+  reviews: review[];
   mark?: string;
   userLogin?: boolean;
 };
@@ -69,25 +67,19 @@ export type review = {
   name: string;
   text: string;
   time: string;
-}
-
-
-export enum Toggle {
-  placeCard,
-  citiesCard,
-  factoriesCard
-}
+};
 
 export type PropsProperty = {
   cards: PropsValueCard[];
   cardsDetail: PropsDetailCard[];
-}
+};
 
-export type PropsFavorites = {
+export type PropsCards = {
   cards: PropsValueCard[];
-}
+};
 
-export type PropsToggle = {
-  switched: Toggle;
-  cards: PropsValueCard[];
-}
+export type PropsActiveCard = {
+  card: PropsValueCard;
+  onCardMouseOver: (id: number) => void;
+  active: boolean;
+};

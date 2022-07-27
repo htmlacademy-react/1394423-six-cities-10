@@ -1,12 +1,12 @@
 import Header from '../../components/header/header';
-import {Link} from 'react-router-dom';
-import {AppRoute} from '../../types/routes/routes';
-import {Cards} from '../../components/cards/cards';
-import {PropsFavorites, Toggle} from '../../types/properties/properties';
+import { Link } from 'react-router-dom';
+import { AppRoute } from '../../types/routes/routes';
+import { PropsCards } from '../../types/properties/properties';
+import { FavoriteCardList } from '../../components/cards/favorite-cards/favorite-card-list';
 
-const Favorites = ((props: PropsFavorites): JSX.Element => (
+const Favorites = (props: PropsCards): JSX.Element => (
   <div className='page'>
-    <Header/>
+    <Header />
     <main className='page__main page__main--favorites'>
       <div className='page__favorites-container container'>
         <section className='favorites'>
@@ -20,7 +20,7 @@ const Favorites = ((props: PropsFavorites): JSX.Element => (
                   </a>
                 </div>
               </div>
-              <Cards switched={Toggle.factoriesCard} cards={props.cards}/>
+              <FavoriteCardList cards={props.cards} />
             </li>
 
             <li className='favorites__locations-items'>
@@ -31,7 +31,7 @@ const Favorites = ((props: PropsFavorites): JSX.Element => (
                   </a>
                 </div>
               </div>
-              <Cards switched={Toggle.factoriesCard} cards={props.cards}/>
+              <FavoriteCardList cards={props.cards} />
             </li>
           </ul>
         </section>
@@ -49,6 +49,6 @@ const Favorites = ((props: PropsFavorites): JSX.Element => (
       </Link>
     </footer>
   </div>
-));
+);
 
 export default Favorites;

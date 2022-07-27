@@ -1,7 +1,6 @@
 import type { PropsWelcomePage } from '../../types/properties/properties';
-import { Cards } from '../../components/cards/cards';
 import Header from '../../components/header/header';
-import {Toggle} from '../../types/properties/properties';
+import { CityCardList } from '../../components/cards/city-cards/city-card-list';
 
 const WelcomeScreen = (props: PropsWelcomePage): JSX.Element => (
   <div className='page page--gray page--main'>
@@ -77,7 +76,7 @@ const WelcomeScreen = (props: PropsWelcomePage): JSX.Element => (
                 </li>
               </ul>
             </form>
-            <Cards switched={Toggle.citiesCard} cards={props.cards}/>
+            <CityCardList cards={props.cards} />
           </section>
           <div className='cities__right-section'>
             <section className='cities__map map'></section>

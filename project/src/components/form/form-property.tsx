@@ -1,14 +1,16 @@
-import {useState} from 'react';
+import { ChangeEvent, useState } from 'react';
 
 export const FormProperty = (): JSX.Element => {
   const [formData, setFormData] = useState({
     rating: 0,
-    review: ''
+    review: '',
   });
 
-  const updateStateHandle = (evt: any) => {
-    const {name, value} = evt.target;
-    setFormData({...formData, [name]: value});
+  const updateStateHandle = (
+    evt: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = evt.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   return (

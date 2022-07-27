@@ -1,24 +1,18 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {AppRoute} from '../../../types/routes/routes';
-import {PropsValueCard} from '../../../types/properties/properties';
+import { Link } from 'react-router-dom';
+import { AppRoute } from '../../../types/routes/routes';
+import { PropsValueCard } from '../../../types/properties/properties';
 
-const PlacesCard = (props: PropsValueCard ): JSX.Element => {
+const PlaceCard = (props: PropsValueCard): JSX.Element => {
   const pathToLink = AppRoute.Offer.replace(':id', props.id.toString());
 
-  const onMouseOver = () => {
-    props.onCardMouseOver?.(props.id);
-
-  };
-  const mark = props.mark ? (
-    <div className='place-card__mark'>
-      <span>{props.mark}</span>
-    </div>
-  ) : null;
-
   return (
-    <article className='near-places__card place-card' onMouseOver={onMouseOver}>
-      {mark}
+    <article className='near-places__card place-card'>
+      {props.mark && (
+        <div className='place-card__mark'>
+          <span>{props.mark}</span>
+        </div>
+      )}
       <div className='near-places__image-wrapper place-card__image-wrapper'>
         <Link to={pathToLink}>
           <img
@@ -40,14 +34,14 @@ const PlacesCard = (props: PropsValueCard ): JSX.Element => {
           </div>
           <button className='place-card__bookmark-button button' type='button'>
             <svg className='place-card__bookmark-icon' width='18' height='19'>
-              <use xlinkHref='#icon-bookmark'/>
+              <use xlinkHref='#icon-bookmark' />
             </svg>
             <span className='visually-hidden'>To bookmarks</span>
           </button>
         </div>
         <div className='place-card__rating rating'>
           <div className='place-card__stars rating__stars'>
-            <span style={{width: '100%'}}/>
+            <span style={{ width: '100%' }} />
             <span className='visually-hidden'>Rating</span>
           </div>
         </div>
@@ -60,4 +54,4 @@ const PlacesCard = (props: PropsValueCard ): JSX.Element => {
   );
 };
 
-export default React.memo(PlacesCard);
+export default React.memo(PlaceCard);

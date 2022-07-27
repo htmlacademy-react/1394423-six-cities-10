@@ -1,24 +1,19 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {AppRoute} from '../../../types/routes/routes';
-import {PropsValueCard} from '../../../types/properties/properties';
+import { Link } from 'react-router-dom';
+import { AppRoute } from '../../../types/routes/routes';
+import { PropsValueCard } from '../../../types/properties/properties';
 
-const FactoriesCard = ((props: PropsValueCard): JSX.Element => {
+const FavoriteCard = (props: PropsValueCard): JSX.Element => {
   const pathToLink = AppRoute.Offer.replace(':id', props.id.toString());
-
-  const mark = props.mark ?
-    (
-      <div className='place-card__mark'>
-        <span>{props.mark}</span>
-      </div>
-    )
-    :
-    null;
 
   return (
     <article className='favorites__card place-card'>
       <div className='favorites__image-wrapper place-card__image-wrapper'>
-        {mark}
+        {props.mark && (
+          <div className='place-card__mark'>
+            <span>{props.mark}</span>
+          </div>
+        )}
         <Link to={pathToLink}>
           <img
             className='place-card__image'
@@ -34,7 +29,7 @@ const FactoriesCard = ((props: PropsValueCard): JSX.Element => {
           <div className='place-card__price'>
             <b className='place-card__price-value'>&euro;{props.price.value}</b>
             <span className='place-card__price-text'>
-          &#47;&nbsp;{props.price.contractTerm}
+              &#47;&nbsp;{props.price.contractTerm}
             </span>
           </div>
           <button
@@ -49,7 +44,7 @@ const FactoriesCard = ((props: PropsValueCard): JSX.Element => {
         </div>
         <div className='place-card__rating rating'>
           <div className='place-card__stars rating__stars'>
-            <span style={{width: '80%'}}/>
+            <span style={{ width: '80%' }} />
             <span className='visually-hidden'>Rating</span>
           </div>
         </div>
@@ -60,7 +55,6 @@ const FactoriesCard = ((props: PropsValueCard): JSX.Element => {
       </div>
     </article>
   );
-}
-);
+};
 
-export default React.memo(FactoriesCard);
+export default React.memo(FavoriteCard);

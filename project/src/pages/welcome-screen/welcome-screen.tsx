@@ -1,6 +1,7 @@
 import type { PropsWelcomePage } from '../../types/properties/properties';
 import Header from '../../components/header/header';
 import { CityCardList } from '../../components/cards/city-cards/city-card-list';
+import Map from '../../components/map/map';
 
 const WelcomeScreen = (props: PropsWelcomePage): JSX.Element => (
   <div className='page page--gray page--main'>
@@ -55,7 +56,7 @@ const WelcomeScreen = (props: PropsWelcomePage): JSX.Element => (
               <span className='places__sorting-type' tabIndex={0}>
                 Popular
                 <svg className='places__sorting-arrow' width='7' height='4'>
-                  <use xlinkHref='#icon-arrow-select'></use>
+                  <use xlinkHref='#icon-arrow-select'/>
                 </svg>
               </span>
               <ul className='places__options places__options--custom places__options--opened'>
@@ -79,7 +80,7 @@ const WelcomeScreen = (props: PropsWelcomePage): JSX.Element => (
             <CityCardList cards={props.cards} />
           </section>
           <div className='cities__right-section'>
-            <section className='cities__map map'></section>
+            <Map city={props.city} cards={props.cards}/>
           </div>
         </div>
       </div>

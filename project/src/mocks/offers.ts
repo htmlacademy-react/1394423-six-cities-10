@@ -10,7 +10,11 @@ export const OFFERS: PropsValueCard[] = [
     },
     description: 'Beautiful luxurious apartment at great location',
     type: 'Apartment',
-    mark: 'Premium'
+    mark: 'Premium',
+    position: {
+      lat: 52.3909553943508,
+      lng: 4.85309666406198,
+    }
   },
   {
     id: 1,
@@ -21,6 +25,10 @@ export const OFFERS: PropsValueCard[] = [
     },
     description: 'Wood and stone place',
     type: 'Private room',
+    position: {
+      lat: 52.369553943508,
+      lng: 4.85309666406198,
+    }
   },
   {
     id: 2,
@@ -31,6 +39,10 @@ export const OFFERS: PropsValueCard[] = [
     },
     description: 'Canal View Prinsengracht',
     type: 'Apartment',
+    position: {
+      lat: 52.3909553943508,
+      lng: 4.929309666406198,
+    }
   },
   {
     id: 3,
@@ -41,6 +53,10 @@ export const OFFERS: PropsValueCard[] = [
     },
     description: 'Nice, cozy, warm big bed apartment',
     type: 'Apartment',
+    position: {
+      lat: 52.3809553943508,
+      lng: 4.939309666406198,
+    }
   },
   {
     id: 4,
@@ -51,5 +67,9 @@ export const OFFERS: PropsValueCard[] = [
     },
     description: 'Wood and stone place',
     type: 'Private room',
+    position: {
+      lat: 52.3959553943508,
+      lng: 4.85309666406198,
+    }
   },
 ];

@@ -1,12 +1,19 @@
 export type PropsWelcomePage = {
   countAvailablePlace: number;
   cards: PropsValueCard[];
+  city: City;
+};
+
+export type PropsMap = {
+  cards: PropsValueCard[];
+  city: City;
 };
 
 export type PropsMain = {
   countAvailablePlace: number;
   cards: PropsValueCard[];
   cardsDetail: PropsDetailCard[];
+  city: City;
 };
 
 export type PropsValueCard = {
@@ -19,7 +26,18 @@ export type PropsValueCard = {
   description: string;
   type: string;
   mark?: string;
+  position: {
+    lat: number;
+    lng: number;
+  }
 };
+
+export type City = {
+  title: string;
+  lat: number;
+  lng: number;
+  zoom: number;
+}
 
 export type PropsDetailCard = {
   id: number;

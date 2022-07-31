@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import leaflet from 'leaflet';
 import {PropsMap} from '../../types/properties/properties';
-import {URL_MARKER_CURRENT, URL_MARKER_DEFAULT} from '../../const';
+import {URL_MARKER_DEFAULT} from '../../const';
 import 'leaflet/dist/leaflet.css';
 import useMap from './useMap';
 
@@ -12,12 +12,6 @@ function Map(props: PropsMap) {
 
   const defaultCustomIcon = leaflet.icon({
     iconUrl: URL_MARKER_DEFAULT,
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
-  });
-
-  const currentCustomIcon = leaflet.icon({
-    iconUrl: URL_MARKER_CURRENT,
     iconSize: [40, 40],
     iconAnchor: [20, 40],
   });
@@ -39,9 +33,9 @@ function Map(props: PropsMap) {
 
 
   return (
-    <section className='cities__map map'
-             ref={mapRef}
-             style={{height: '500px'}}
+    <section className="cities__map1 map1"
+      ref={mapRef}
+      style={{height: '500px', width: '500px'}}
     />
   );
 }

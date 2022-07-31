@@ -1,11 +1,13 @@
-// import React, {useEffect, useState} from 'react';
-// import leaflet from 'leaflet';
+import {useEffect, useState} from 'react';
+import leaflet from 'leaflet';
 
 function useMap(mapRef, city) {
   const [map, setMap] = useState(null);
+  let firstMount = true;
 
   useEffect(() => {
-    if (mapRef.current !== null && map === null) {
+    if (mapRef.current !== null && map === null && firstMount) {
+      firstMount = false;
       const instance = leaflet.map(mapRef.current, {
         center: {
           lat: city.lat,

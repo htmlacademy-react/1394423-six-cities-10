@@ -1,18 +1,10 @@
 import React from 'react';
-import {PropsDetailCard} from '../../../types/properties/properties';
-import {FormProperty} from '../../form/form-property';
+import { PropsDetailCard } from '../../../types/properties/properties';
+import { FormProperty } from '../../form/form-property';
+import { ReviewList } from '../../review/review-list';
 
-const CardDetail = ((props: PropsDetailCard): JSX.Element => {
+const CardDetail = (props: PropsDetailCard): JSX.Element => {
   const card = props;
-  const markBlock = props.mark ? (
-    <div className='property__mark'>
-      <span>{props.mark}</span>
-    </div>
-  ) : null;
-
-  const reviewBlock = props?.userLogin ? (
-    <FormProperty/>
-  ) : null;
 
   return (
     <section className='property'>
@@ -31,20 +23,15 @@ const CardDetail = ((props: PropsDetailCard): JSX.Element => {
       </div>
       <div className='property__container container'>
         <div className='property__wrapper'>
-          {markBlock}
+          {props.mark && (
+            <div className='property__mark'>
+              <span>{props.mark}</span>
+            </div>
+          )}
           <div className='property__name-wrapper'>
-            <h1 className='property__name'>
-              {card.name}
-            </h1>
-            <button
-              className='property__bookmark-button button'
-              type='button'
-            >
-              <svg
-                className='property__bookmark-icon'
-                width='31'
-                height='33'
-              >
+            <h1 className='property__name'>{card.name}</h1>
+            <button className='property__bookmark-button button' type='button'>
+              <svg className='property__bookmark-icon' width='31' height='33'>
                 <use xlinkHref='#icon-bookmark'></use>
               </svg>
               <span className='visually-hidden'>{card.bookmark}</span>
@@ -52,7 +39,7 @@ const CardDetail = ((props: PropsDetailCard): JSX.Element => {
           </div>
           <div className='property__rating rating'>
             <div className='property__stars rating__stars'>
-              <span style={{width: '80%'}}></span>
+              <span style={{ width: '80%' }}></span>
               <span className='visually-hidden'>Rating</span>
             </div>
             <span className='property__rating-value rating__value'>
@@ -72,15 +59,18 @@ const CardDetail = ((props: PropsDetailCard): JSX.Element => {
           </ul>
           <div className='property__price'>
             <b className='property__price-value'>&euro;{card.price.value}</b>
-            <span className='property__price-text'>&nbsp;{card.price.contractTerm}</span>
+            <span className='property__price-text'>
+              &nbsp;{card.price.contractTerm}
+            </span>
           </div>
           <div className='property__inside'>
             <h2 className='property__inside-title'>{card.inside.title}</h2>
 
-
             <div className='property__inside-list'>
               {card.inside.item.map((item) => (
-                <li key={item.id} className='property__inside-item'>{item.value}</li>
+                <li key={item.id} className='property__inside-item'>
+                  {item.value}
+                </li>
               ))}
             </div>
           </div>
@@ -101,55 +91,25 @@ const CardDetail = ((props: PropsDetailCard): JSX.Element => {
             </div>
             <div className='property__description'>
               {card.host.description.map((item) => (
-                <p key={item.id} className='property__text'>{item.text}</p>
+                <p key={item.id} className='property__text'>
+                  {item.text}
+                </p>
               ))}
             </div>
           </div>
-
-          {card.reviews.map((item) => (
-            <section key={item.id} className='property__reviews reviews'>
-              <h2 className='reviews__title'>
-                Reviews &middot; <span className='reviews__amount'>{item.id}</span>
-              </h2>
-              <ul className='reviews__list'>
-                <li className='reviews__item'>
-                  <div className='reviews__user user'>
-                    <div className='reviews__avatar-wrapper user__avatar-wrapper'>
-                      <img
-                        className='reviews__avatar user__avatar'
-                        src={item.imageSrc}
-                        width='54'
-                        height='54'
-                        alt='Reviews avatar'
-                      />
-                    </div>
-                    <span className='reviews__user-name'>{item.name}</span>
-                  </div>
-                  <div className='reviews__info'>
-                    <div className='reviews__rating rating'>
-                      <div className='reviews__stars rating__stars'>
-                        <span style={{width: '80%'}}/>
-                        <span className='visually-hidden'>Rating</span>
-                      </div>
-                    </div>
-                    <p className='reviews__text'>
-                      {item.text}
-                    </p>
-                    <time className='reviews__time' dateTime='2019-04-24'>
-                      {item.time}
-                    </time>
-                  </div>
-                </li>
-              </ul>
-              {}
-            </section>
-          ))}
-          {reviewBlock}
+          <section className='property__reviews reviews'>
+            <h2 className='reviews__title'>
+              Reviews &middot;{' '}
+              <span className='reviews__amount'>{card.reviews.length}</span>
+            </h2>
+            <ReviewList reviews={card.reviews} />
+          </section>
+          {props?.userLogin && <FormProperty />}
         </div>
       </div>
-      <section className='property__map map'/>
+      <section className='property__map map' />
     </section>
-  );}
-);
+  );
+};
 export default React.memo(CardDetail);
 

@@ -20,6 +20,7 @@ const App = (props: PropsMain): JSX.Element => (
             <WelcomeScreen
               countAvailablePlace={props.countAvailablePlace}
               cards={props.cards}
+              city={props.city}
             />
           </main>
         }

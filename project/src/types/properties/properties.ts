@@ -1,14 +1,20 @@
 export type PropsWelcomePage = {
   countAvailablePlace: number;
   cards: PropsValueCard[];
+  city: City;
+};
+
+export type PropsMap = {
+  cards: PropsValueCard[];
+  city: City;
 };
 
 export type PropsMain = {
   countAvailablePlace: number;
   cards: PropsValueCard[];
   cardsDetail: PropsDetailCard[];
+  city: City;
 };
-
 
 export type PropsValueCard = {
   id: number;
@@ -20,8 +26,18 @@ export type PropsValueCard = {
   description: string;
   type: string;
   mark?: string;
-  onCardMouseOver?: (id: number) => void;
+  position: {
+    lat: number;
+    lng: number;
+  }
 };
+
+export type City = {
+  title: string;
+  lat: number;
+  lng: number;
+  zoom: number;
+}
 
 export type PropsDetailCard = {
   id: number;
@@ -36,7 +52,7 @@ export type PropsDetailCard = {
     entire: string;
     bedrooms: string;
     adults: string;
-  }
+  };
   price: {
     value: number;
     contractTerm: string;
@@ -47,7 +63,7 @@ export type PropsDetailCard = {
       id: number;
       value: string;
     }[];
-  }
+  };
   host: {
     title: string;
     imageSrc: string;
@@ -57,37 +73,35 @@ export type PropsDetailCard = {
       id: number;
       text: string;
     }[];
-  }
-  reviews: review[],
+  };
+  reviews: PropsReview[];
   mark?: string;
   userLogin?: boolean;
 };
 
-export type review = {
+export type PropsReview = {
   id: number;
   imageSrc: string;
   name: string;
   text: string;
   time: string;
-}
+};
 
-
-export enum Toggle {
-  placeCard,
-  citiesCard,
-  factoriesCard
-}
+export type PropsReviewList = {
+  reviews: PropsReview[];
+};
 
 export type PropsProperty = {
   cards: PropsValueCard[];
   cardsDetail: PropsDetailCard[];
-}
+};
 
-export type PropsFavorites = {
+export type PropsCards = {
   cards: PropsValueCard[];
-}
+};
 
-export type PropsToggle = {
-  switched: Toggle;
-  cards: PropsValueCard[];
-}
+export type PropsActiveCard = {
+  card: PropsValueCard;
+  onCardMouseOver: (id: number) => void;
+  active: boolean;
+};
